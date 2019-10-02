@@ -18,7 +18,7 @@ namespace Dao
                 return null;
             }
             var connStr = ConfigurationManager.ConnectionStrings[name].ConnectionString;
-            if (string.IsNullOrWhiteSpace(connStr))
+            if (!string.IsNullOrWhiteSpace(connStr))
             {
                 return connStr;
             }

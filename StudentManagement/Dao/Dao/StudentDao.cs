@@ -15,7 +15,7 @@ namespace Dao.Dao
     /// </summary>
     public class StudentDao
     {
-        public static List<Student> GetAll()
+        public  List<Student> GetAll()
         {
             string sql = "select * from t_student";
             using (IDbConnection conn = new MySqlConnection(ConnectionString.DB_Student))
@@ -23,5 +23,21 @@ namespace Dao.Dao
                 return conn.Query<Student>(sql).ToList();
             }
         }
+
+        public int Insert(Student student)
+        {
+            string sql = "insert into t_student(name,age,sex,birthday) values(@name,@age,@sex,@birthday)";
+            using (IDbConnection conn = new MySqlConnection(ConnectionString.DB_Student))
+            {
+                return conn.Execute(sql,new { name=student.Name,age=student.Age,sex=student.Sex, birthday=student.Birthday });
+            }
+        }
+
+        //删除
+
+
+        //修改
+
+
     }
 }

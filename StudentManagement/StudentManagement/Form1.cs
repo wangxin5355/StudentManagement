@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StudentManagement.UserControls;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -30,12 +31,27 @@ namespace StudentManagement
             //|| 或者    && 并且
             if(e.Node.Name== "StudentsList"|| e.Node.Name == "ClassList" || e.Node.Name == "HeadTeacherList"|| e.Node.Name == "TeacherList")
             {
+                TabPage tabPage;
                 if (!tabPages.Exists(x => x.Text == e.Node.Text))
                 {
-                    TabPage tabPage = new TabPage();
+                    tabPage = new TabPage();
                     tabPage.Text = e.Node.Text;
                     this.tabCtrl_Content.TabPages.Add(tabPage);
                     tabPages.Add(tabPage);
+                }
+                else
+                {
+                    tabPage = tabPages.FirstOrDefault(x => x.Text == e.Node.Text);
+                }
+
+                if(e.Node.Name == "StudentsList")
+                {
+                    StudentList studentList = new StudentList();
+                    studentList.Dock = DockStyle.Fill;
+                    tabPage.Controls.Clear();
+                    tabPage.Controls.Add(studentList);
+
+
                 }
             }
             
@@ -44,6 +60,7 @@ namespace StudentManagement
         private void Button1_Click(object sender, EventArgs e)
         {
             //点击后向树节点添加一个任节点。
+
         }
     }
 }
