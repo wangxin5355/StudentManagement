@@ -1,4 +1,6 @@
-﻿using StudentManagement.UserControls;
+﻿using Dao.Dao;
+using Dao.Entity;
+using StudentManagement.UserControls;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -60,7 +62,18 @@ namespace StudentManagement
         private void Button1_Click(object sender, EventArgs e)
         {
             //点击后向树节点添加一个任节点。
+            this.treeView.Nodes.Add("xxxxx");
 
         }
+
+        //private void Button2_Click(object sender, EventArgs e)
+        //{
+        //    StudentDao dao = new StudentDao();
+
+        //    Student student= dao.GetStudentByID(1);
+
+
+
+        //}
     }
 }

@@ -66,7 +66,9 @@
   <ItemGroup>
     <Compile Include="ConnectionString.cs" />
     <Compile Include="Dao\StudentDao.cs" />
+    <Compile Include="Dao\TeacherDao.cs" />
     <Compile Include="Entity\Student.cs" />
+    <Compile Include="Entity\Teacher.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
